@@ -1,18 +1,24 @@
-import { useSettings } from '../context/SettingsContext.jsx';
+import { useSettings } from '../context/SettingsContext';
 
 const PreviewCard = () => {
   const { theme, language } = useSettings();
-  
-  const content = {
+  const t = {
     en: "This is your preference preview.",
     th: "นี่คือหน้าตัวอย่างการตั้งค่า"
   };
 
   return (
     <div className="card">
-      <p><strong>Theme:</strong> {theme}</p>
-      <p><strong>Language:</strong> {language}</p>
-      <p>{content[language]}</p>
+      <h3>Preview</h3>
+      <div className="row">
+        <span>Current Theme:</span>
+        <strong>{theme}</strong>
+      </div>
+      <div className="row">
+        <span>Current Language:</span>
+        <strong>{language}</strong>
+      </div>
+      <p className="preview-text">{t[language]}</p>
     </div>
   );
 };

@@ -3,7 +3,6 @@ import { createContext, useState, useEffect, useContext } from 'react';
 const SettingsContext = createContext();
 
 export const SettingsProvider = ({ children }) => {
-  // Requirement 2: Load from localStorage or use defaults
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('app-settings');
     return saved ? JSON.parse(saved).theme : 'light';
@@ -14,7 +13,6 @@ export const SettingsProvider = ({ children }) => {
     return saved ? JSON.parse(saved).language : 'en';
   });
 
-  // Requirement 3: Save to localStorage on change
   useEffect(() => {
     localStorage.setItem('app-settings', JSON.stringify({ theme, language }));
   }, [theme, language]);

@@ -1,22 +1,30 @@
-import { useSettings } from '../context/SettingsContext.jsx';
+import { useSettings } from '../context/SettingsContext';
 
 const SettingsPanel = () => {
   const { theme, setTheme, language, setLanguage, resetSettings } = useSettings();
 
   return (
-    <section className="panel">
-      <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-        <option value="light">Light Mode</option>
-        <option value="dark">Dark Mode</option>
-      </select>
-
-      <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-        <option value="en">English (EN)</option>
-        <option value="th">Thai (TH)</option>
-      </select>
-
-      <button onClick={resetSettings}>Reset Settings</button>
-    </section>
+    <div className="panel">
+      <h3>Settings</h3>
+      <div className="row">
+        <span>Theme</span>
+        <div className="pill-group">
+          <button className={theme === 'light' ? 'active' : ''} onClick={() => setTheme('light')}>Light</button>
+          <button className={theme === 'dark' ? 'active' : ''} onClick={() => setTheme('dark')}>Dark</button>
+        </div>
+      </div>
+      <div className="row">
+        <span>Language</span>
+        <div className="pill-group">
+          <button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</button>
+          <button className={language === 'th' ? 'active' : ''} onClick={() => setLanguage('th')}>TH</button>
+        </div>
+      </div>
+      <div className="row">
+        <span>Actions</span>
+        <button className="reset-btn" onClick={resetSettings}>Reset</button>
+      </div>
+    </div>
   );
 };
 

@@ -1,99 +1,92 @@
-/* src/App.css */
 .app-wrapper {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 60px 20px;
+  transition: background-color 0.3s ease;
 }
 
-/* Theme Colors */
-.app-wrapper.light {
-  background-color: #f0f2f5;
-  color: #1a1a1b;
-}
+.app-wrapper.light { background-color: #f8f9fa; color: #1a1a1a; }
+.app-wrapper.dark { background-color: #0b1120; color: #ffffff; }
 
-.app-wrapper.dark {
-  background-color: #121212;
-  color: #e4e6eb;
-}
-
-/* Layout Containers */
-header {
+.container {
   width: 100%;
   max-width: 900px;
-  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+header, .panel, .card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark header, .dark .panel, .dark .card {
+  background: #161e2d;
+  border-color: #1e293b;
 }
 
 .main-content {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Side-by-side layout */
-  gap: 24px;
-  width: 100%;
-  max-width: 900px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  align-items: start;
 }
 
-/* Components: Header, Panel, Card */
-header, .panel, .card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 24px;
-  border: 1px solid #dcdfe4;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* Component Dark Mode adjustments */
-.dark header, .dark .panel, .dark .card {
-  background: #242526;
-  border-color: #3e4042;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Typography */
-h1 { font-size: 1.5rem; font-weight: 700; }
-h2 { font-size: 1.1rem; margin-bottom: 20px; color: #65676b; }
-.dark h2 { color: #b0b3b8; }
-
-/* Settings Rows */
-.setting-row {
+.row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px dashed #e4e6eb;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
-.dark .setting-row { border-bottom-color: #3e4042; }
+.dark .row { border-bottom-color: rgba(255,255,255,0.05); }
 
-/* Buttons & Selects */
-select, button {
-  padding: 8px 14px;
+.pill-group {
+  display: flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 10px;
+  gap: 4px;
+}
+.dark .pill-group { background: #0f172a; }
+
+.pill-group button {
+  padding: 6px 16px;
+  border: none;
   border-radius: 8px;
-  border: 1px solid #ced4da;
-  background: white;
   cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.reset-btn {
-  margin-top: 20px;
-  width: 100%;
-  background: transparent;
-  color: #f02849;
-  border: 1px solid #f02849;
   font-weight: 600;
-  transition: all 0.2s;
+  background: transparent;
+  color: #64748b;
+  transition: 0.2s;
 }
 
-.reset-btn:hover {
-  background: #f02849;
+.pill-group button.active {
+  background: white;
+  color: #0f172a;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.dark .pill-group button.active {
+  background: #1e293b;
   color: white;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .main-content {
-    grid-template-columns: 1fr;
-  }
+.reset-btn {
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-content { grid-template-columns: 1fr; }
 }
