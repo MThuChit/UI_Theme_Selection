@@ -3,8 +3,8 @@ import { useSettings } from '../context/SettingsContext';
 const PreviewCard = () => {
   const { theme, language } = useSettings();
   const t = {
-    en: "This is your preference preview.",
-    th: "นี่คือหน้าตัวอย่างการตั้งค่า"
+    EN: "This is your preference preview.",
+    TH: "นี่คือหน้าตัวอย่างการตั้งค่า"
   };
 
   return (

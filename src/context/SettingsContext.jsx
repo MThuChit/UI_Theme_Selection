@@ -10,7 +10,7 @@ export const SettingsProvider = ({ children }) => {
 
   const [language, setLanguage] = useState(() => {
     const saved = localStorage.getItem('app-settings');
-    return saved ? JSON.parse(saved).language : 'en';
+    return saved ? JSON.parse(saved).language : 'EN';
   });
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const SettingsProvider = ({ children }) => {
 
   const resetSettings = () => {
     setTheme('light');
-    setLanguage('en');
+    setLanguage('EN');
   };
 
   return (

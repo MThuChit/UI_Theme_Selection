@@ -16,8 +16,8 @@ const SettingsPanel = () => {
       <div className="row">
         <span>Language</span>
         <div className="pill-group">
-          <button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</button>
-          <button className={language === 'th' ? 'active' : ''} onClick={() => setLanguage('th')}>TH</button>
+          <button className={language === 'EN' ? 'active' : ''} onClick={() => setLanguage('EN')}>EN</button>
+          <button className={language === 'TH' ? 'active' : ''} onClick={() => setLanguage('TH')}>TH</button>
         </div>
       </div>
       <div className="row">
